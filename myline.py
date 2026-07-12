@@ -63,7 +63,7 @@ class LineFollower:
                     cx = int(M["m10"]/M["m00"])
                     error = cx - (w//2)
 
-                    steering = -(error/(w/2))
+                    steering = (error/(w/2))
                     steering = max(min(steering,1.0),-1.0)
                     steering = 0.7*self.prev_steering + 0.3*steering
                     self.prev_steering = steering
