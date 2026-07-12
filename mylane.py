@@ -87,14 +87,14 @@ class LaneFollower:
 
             cx = int(M["m10"] / M["m00"])
 
-            error = cx - (width // 2)
+            error = -(cx - (width // 2))
 
             steering = -float(error) / (width // 2)
 
             steering = max(min(steering, 1.0), -1.0)
 
         # Smooth steering
-        steering = 0.7 * self.prev_steering + 0.3 * steering
+        steering = 0.7 * self.prev_steering + 0.7 * steering
 
         self.prev_steering = steering
 
@@ -105,13 +105,13 @@ class LaneFollower:
         throttle = self.base_throttle
 
         if abs(steering) > 0.40:
-            throttle = 0.18
+            throttle = 0.28
 
         elif abs(steering) > 0.20:
-            throttle = 0.22
+            throttle = 0.32
 
         else:
-            throttle = 0.28
+            throttle = 0.38
 
         # ======================================================
         # DISPLAY
