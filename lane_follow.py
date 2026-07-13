@@ -27,7 +27,7 @@ class LaneFollower:
 
             cx = np.mean(xs)
 
-            # 🔥 Shift slightly left
+            #  Shift slightly left
              
 
             steering = ((cx - width/2) / (width/2)) 
